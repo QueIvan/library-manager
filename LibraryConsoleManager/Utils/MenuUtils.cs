@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
 {
-    internal class Utils
+    internal class MenuUtils
     {
         public static bool IsNumberInRange(int Choice)
         {
