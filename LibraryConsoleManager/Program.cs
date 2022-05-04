@@ -10,7 +10,7 @@ namespace LibraryConsoleManager
     {
         static void Main(string[] args)
         {
-            Utils.RunMenu();
+            MenuUtils.RunMenu();
             Console.Write("\nAby zakończyć program, wciśnij dowolny przycisk...");
             Console.ReadLine();
         }

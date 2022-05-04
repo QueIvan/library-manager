@@ -43,14 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionHandler.cs" />
-    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="EntryObjects\PopularBook.cs" />
+    <Compile Include="EntryObjects\EducationalBook.cs" />
+    <Compile Include="Miscellaneous\Author.cs" />
+    <Compile Include="EntryObjects\Book.cs" />
+    <Compile Include="EntryObjects\Magazine.cs" />
+    <Compile Include="EntryObjects\CD.cs" />
+    <Compile Include="Handlers\ActionHandler.cs" />
+    <Compile Include="Handlers\ExceptionHandler.cs" />
+    <Compile Include="EntryObjects\LibraryEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="Utils\MenuUtils.cs" />
+    <Compile Include="Utils\StringUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
