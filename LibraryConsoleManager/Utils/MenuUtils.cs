@@ -9,14 +9,22 @@ namespace LibraryConsoleManager
 {
     internal class MenuUtils
     {
-        public static bool IsNumberInRange(int Choice)
+        private bool InFileOperations;
+
+        public MenuUtils(bool SaveType)
+        {
+            InFileOperations = SaveType;
+        }
+
+        private bool IsNumberInRange(int Choice)
         {
             if (Choice >= 0 && Choice <= 6) return true;
             else throw new ArgumentOutOfRangeException();
         }
-        public static void ShowMenu()
+
+        private void ShowMenu()
         {
-            Console.WriteLine("\nWitamy w bibliotece. wybierz co chcesz zrobić:\n");
+            Console.WriteLine("Witamy w bibliotece. wybierz co chcesz zrobić:\n");
             Console.WriteLine("   1. Dodaj książkę");
             Console.WriteLine("   2. Dodaj płytę");
             Console.WriteLine("   3. Dodaj czasopismo");
@@ -26,9 +34,10 @@ namespace LibraryConsoleManager
             Console.WriteLine("   0. Wyjście");
             Console.Write("\nWybór: ");
         }
-        public static void RunMenu()
+
+        public void RunMenu()
         {
-            ActionHandler AH = new ActionHandler();
+            ActionHandler AH = new ActionHandler(InFileOperations);
             int Choice = -1;
             ShowMenu();
 
@@ -39,27 +48,28 @@ namespace LibraryConsoleManager
                     Choice = Int32.Parse(Console.ReadLine());
                     if (IsNumberInRange(Choice))
                     {
-                        if (Choice >= 1) AH.AddItem<Book>();
-                        else if(Choice >= 2) AH.AddItem<CD>();
-                        else if(Choice >= 3) AH.AddItem<Magazine>();
+                        if (Choice == 1) AH.AddItem<Book>();
+                        else if (Choice == 2) AH.AddItem<CD>();
+                        else if (Choice == 3) AH.AddItem<Magazine>();
                         else if (Choice == 4) AH.DeleteItem();
                         else if (Choice == 5) AH.ShowAll();
                         else if (Choice == 6) AH.ShowMatching();
-
-                        Clean(2);
+                        else if (Choice == 0) break;
                     }
                 }catch (Exception ex)
                 {
-                    ExceptionHandler.ShowResponse(ex.GetType().Name);
-                    if (Choice != -1) Choice = -1;
-                    ShowMenu();
+                    ExceptionHandler.ShowResponse(ex);
                 }
+
+                MenuUtils.Clean(2);
+                if (Choice != -1) Choice = -1;
+                ShowMenu();
             }
         }
 
         public static void Clean(int Timeout)
         {
-
+            Console.WriteLine(" ");
             for (int i = Timeout; i > 0; i--)
             {
                 Console.Write($"\rPowrót do menu głównego za {i} sekundy");
