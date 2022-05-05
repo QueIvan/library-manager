@@ -11,7 +11,7 @@ namespace LibraryConsoleManager
         private Author Author;
         private DateTime ReleaseDate;
 
-        public Magazine(string Title, string CompanyName, uint CatalogId, DateTime Date) : base(Title, CatalogId, EntryType.CD)
+        public Magazine([DisplayName("tytuł")] string Title, [DisplayName("nazwę wydawcy")] string CompanyName, [DisplayName("numer katalogowy")] uint CatalogId, [DisplayName("rok wydania")] DateTime Date) : base(Title, CatalogId, EntryType.CD)
         {
             this.Author = new Author(CompanyName);
             this.ReleaseDate = Date;

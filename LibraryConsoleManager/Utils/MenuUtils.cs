@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace LibraryConsoleManager
 {
@@ -38,10 +39,14 @@ namespace LibraryConsoleManager
                     Choice = Int32.Parse(Console.ReadLine());
                     if (IsNumberInRange(Choice))
                     {
-                        if (Choice >= 1 && Choice <= 3) AH.AddItem();
+                        if (Choice >= 1) AH.AddItem<Book>();
+                        else if(Choice >= 2) AH.AddItem<CD>();
+                        else if(Choice >= 3) AH.AddItem<Magazine>();
                         else if (Choice == 4) AH.DeleteItem();
                         else if (Choice == 5) AH.ShowAll();
                         else if (Choice == 6) AH.ShowMatching();
+
+                        Clean(2);
                     }
                 }catch (Exception ex)
                 {
@@ -50,6 +55,18 @@ namespace LibraryConsoleManager
                     ShowMenu();
                 }
             }
+        }
+
+        public static void Clean(int Timeout)
+        {
+
+            for (int i = Timeout; i > 0; i--)
+            {
+                Console.Write($"\rPowrót do menu głównego za {i} sekundy");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine("\n");
+            Console.Clear();
         }
     }
 }
