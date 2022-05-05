@@ -40,6 +40,7 @@ namespace LibraryConsoleManager
                 foreach (ParameterInfo pi in Parameters)
                 {
                     Type ParamType = pi.ParameterType;
+                    string ParamName = "";
                     if(pi.GetCustomAttributes().Count() > 0)
                     {
                         foreach(Object at in pi.GetCustomAttributes())
@@ -47,10 +48,15 @@ namespace LibraryConsoleManager
                             if(at as DisplayNameAttribute != null)
                             {
                                 DisplayNameAttribute dn = (DisplayNameAttribute) at;
-                                Console.Write($"   Podaj {dn.GetDisplayName()}:  ");
+                                ParamName = dn.GetDisplayName();
                             }
                         }
                     }
+                    else
+                    {
+                        ParamName = pi.Name;
+                    }
+                    Console.Write($"   Podaj {ParamName}:  ");
                     Arguments.Add(Convert.ChangeType(Console.ReadLine(), ParamType));
                 }
             }
