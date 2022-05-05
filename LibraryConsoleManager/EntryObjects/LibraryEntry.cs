@@ -17,7 +17,6 @@ namespace LibraryConsoleManager
         private DateTime ModificationDate;
 
         /* Constructors */
-
         public LibraryEntry(string Title, uint CatalogId, EntryType Type)
         {
             this.Title = Title;

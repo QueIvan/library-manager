@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 
 namespace LibraryConsoleManager
 {
@@ -22,13 +21,7 @@ namespace LibraryConsoleManager
                     Console.WriteLine("\n[BŁĄD NIEZNANY] Wystąpił błąd który nie jest znany przez nasz zespół");
                     break;
             }
-            for(int i = 2; i > 0; i--)
-            {
-                Console.Write($"\rPowrót do menu głównego za {i} sekundy");
-                Thread.Sleep(1000);
-            }
-            Console.WriteLine("\n");
-            Console.Clear();
+            MenuUtils.Clean(2);
         }
     }
 }
