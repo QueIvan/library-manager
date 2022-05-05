@@ -18,6 +18,7 @@ namespace LibraryConsoleManager
             this.LastName = LastName;
             this.CompanyName = CompanyName;
         }
+
         public Author(string FirstName, string LastName)
         {
             this.FirstName = FirstName;
@@ -28,6 +29,5 @@ namespace LibraryConsoleManager
         {
             this.CompanyName = CompanyName;
         }
-
     }
 }

@@ -8,9 +8,9 @@ namespace LibraryConsoleManager
 {
     internal class ActionHandler
     {
-        public void AddItem()
+        public void AddItem<T>()
         {
-
+            Inputs.ReadObject<T>();
         }
         public void DeleteItem()
         {
