@@ -45,9 +45,10 @@ namespace LibraryConsoleManager
                         else if (Choice == 4) AH.DeleteItem();
                         else if (Choice == 5) AH.ShowAll();
                         else if (Choice == 6) AH.ShowMatching();
-
-                        Clean(2);
                     }
+
+                    if (Choice != 0) Clean(3); else Console.Clear();
+
                 }catch (Exception ex)
                 {
                     ExceptionHandler.ShowResponse(ex.GetType().Name);
@@ -67,6 +68,7 @@ namespace LibraryConsoleManager
             }
             Console.WriteLine("\n");
             Console.Clear();
+            RunMenu();
         }
     }
 }
