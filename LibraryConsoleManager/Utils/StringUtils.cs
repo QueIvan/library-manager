@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
@@ -21,6 +22,11 @@ namespace LibraryConsoleManager
         {
             int SpaceCount = size - $"{id}".Length;
             return $"{String.Concat(Enumerable.Repeat(" ", SpaceCount))}{id}";
+        }
+
+        public static bool StringContains(string target, string match)
+        {
+            return Regex.IsMatch(target.ToLower(), $".*{match.ToLower()}.*");
         }
     }
 }

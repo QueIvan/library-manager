@@ -17,6 +17,12 @@ namespace LibraryConsoleManager
         private DateTime ModificationDate;
 
         /* Constructors */
+
+        public LibraryEntry()
+        {
+
+        }
+
         public LibraryEntry(string Title, uint CatalogId, EntryType Type)
         {
             this.Title = Title;
@@ -27,13 +33,14 @@ namespace LibraryConsoleManager
             this.Rented = false;
         }
 
-        /* Other methods */
-
-        public string GetString()
+        public uint GetCatalogId()
         {
-            string TypeName = (Type.ToString() == "Book") ? "Książka" : (Type.ToString() == "CD") ? "Płyta CD" : "Czasopisma";
-            string ModificationString = (ModificationDate == DateTime.MinValue) ? "" : $"\n   Modyfikacja:  {StringUtils.LeadingZeroAddition(ModificationDate.Day)}.{StringUtils.LeadingZeroAddition(ModificationDate.Month)}.{ModificationDate.Year}";
-            return $"\n{TypeName} - \"{Title}\":\n   Numer karty: {StringUtils.FillSpace(CatalogId, 11)}\n   Dodano:       {StringUtils.LeadingZeroAddition(AdditionDate.Day)}.{StringUtils.LeadingZeroAddition(AdditionDate.Month)}.{AdditionDate.Year}{ModificationString}\n   Wypożyczona:         {StringUtils.BooleanConvert(Rented)}\n   Zarezerwowana:       {StringUtils.BooleanConvert(Reserved)}";
+            return this.CatalogId;
+        }
+
+        public string GetTitle()
+        {
+            return this.Title;
         }
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace LibraryConsoleManager
 {
@@ -16,17 +17,11 @@ namespace LibraryConsoleManager
                     Console.WriteLine($"\n[BŁĄD - {Name}] Proszę wpisywać wyłącznie liczby");
                     break;
                 case "ArgumentOutOfRangeException":
-                    if (corr)
-                    {
-                        Console.WriteLine($"\n[BŁĄD - {Name}] Wybierz wartość między 0 a 6");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"\n[BŁĄD - {Name}] Poprawne wartości to \"T\" lub \"N\"");
-                    }
+                    Console.WriteLine($"\n[BŁĄD - {Name}] Wybierz wartość między 0 a 6");
                     break;
                 default:
                     Console.WriteLine($"\n[BŁĄD NIEZNANY] {Exc.Message}");
+                    Thread.Sleep(15000);
                     break;
             }
         }
