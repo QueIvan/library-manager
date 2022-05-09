@@ -6,7 +6,7 @@ namespace LibraryConsoleManager
     {
         CD, Book, Magazine
     }
-    internal class LibraryEntry
+    abstract class LibraryEntry
     {
         private readonly uint CatalogId;
         private bool Rented;
