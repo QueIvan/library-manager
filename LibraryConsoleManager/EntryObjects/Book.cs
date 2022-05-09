@@ -13,15 +13,16 @@ namespace LibraryConsoleManager
         private int PublicationYear;
         private int ISBN;
 
-        public Book()
-        {
-
-        }
         public Book([DisplayName("tytuł")]string Title, [DisplayName("imie")] string FirstName, [DisplayName("nazwisko")] string LastName, [DisplayName("numer katalogowy")] uint CatalogId, [DisplayName("numer ISBN")] int ISBN, [DisplayName("rok wydania")] int Year) : base(Title, CatalogId, EntryType.Book)
         {
             this.Author = new Author(FirstName, LastName);
             this.PublicationYear = Year;
             this.ISBN = ISBN;
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n\n     Dane dodatkowe Książki:\n          Autor: {Author.ToString()}\n          Rok wydania: {PublicationYear}\n          Numer ISBN: {ISBN}";
         }
 
     }

@@ -11,7 +11,7 @@ namespace LibraryConsoleManager
         public List<Tuple<Type, String>> GetImplementating(Type Implementation)
         {
             List<Tuple<Type, String>> OptionsList = new List<Tuple<Type, String>>();
-            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(s=>s.GetTypes()).Where(t => Implementation.IsAssignableFrom(t) && t!=Implementation);
+            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(s=>s.GetTypes()).Where(t => Implementation.IsAssignableFrom(t) && t != Implementation);
             foreach(Type type in types)
             {
                 DisplayNameAttribute att = type.GetCustomAttributes(typeof(DisplayNameAttribute), true).FirstOrDefault() as DisplayNameAttribute;

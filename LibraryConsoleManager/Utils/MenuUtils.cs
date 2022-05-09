@@ -12,7 +12,7 @@ namespace LibraryConsoleManager
 
         private bool IsNumberInRange(int Choice)
         {
-            if (Choice >= 0 && Choice <= 6) return true;
+            if (Choice >= 0 && Choice <= 7) return true;
             else throw new ArgumentOutOfRangeException();
         }
 
@@ -25,6 +25,7 @@ namespace LibraryConsoleManager
             Console.WriteLine("   4. Usuń pozycję");
             Console.WriteLine("   5. Wyświetl wszystkie pozycje");
             Console.WriteLine("   6. Wyświetl wszystkie pozycje danego typu");
+            Console.WriteLine("   7. Wyświetl status pozycji");
             Console.WriteLine("   0. Wyjście");
             Console.Write("\nWybór: ");
         }
@@ -49,6 +50,7 @@ namespace LibraryConsoleManager
                         else if (Choice == 4) AH.DeleteItem();
                         else if (Choice == 5) AH.ShowAll();
                         else if (Choice == 6) AH.ShowMatching();
+                        else if (Choice == 7) AH.ShowStatus();
                         else if (Choice == 0) break;
                     }
                 }catch (Exception ex)

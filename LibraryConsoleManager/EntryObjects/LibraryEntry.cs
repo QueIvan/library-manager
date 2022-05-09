@@ -14,7 +14,6 @@ namespace LibraryConsoleManager
         private string Title;
         private EntryType Type;
         private DateTime AdditionDate;
-        private DateTime ModificationDate;
 
         /* Constructors */
 
@@ -41,6 +40,18 @@ namespace LibraryConsoleManager
         public string GetTitle()
         {
             return this.Title;
+        }
+
+        public override string ToString()
+        {
+            string TypeString = (Type == EntryType.CD) ? "Płyty" : (Type == EntryType.Magazine) ? "Magazynu" : "Książki";
+            return $"\nDane {TypeString}:\n\n     Tytuł: {Title}\n     Numer katalogowy: {CatalogId}\n     Data Dodania: {AdditionDate}\n     Zarezerwowana: {StringUtils.BooleanConvert(Reserved)}\n     Wynajęta: {StringUtils.BooleanConvert(Rented)}";
+        }
+
+        public string GetState()
+        {
+            string TypeString = (Type == EntryType.CD) ? "Płyty" : (Type == EntryType.Magazine) ? "Magazynu" : "Książki";
+            return $"\nStatus {TypeString}:\n\n     Zarezerwowana: {StringUtils.BooleanConvert(Reserved)}\n     Wynajęta: {StringUtils.BooleanConvert(Rented)}";
         }
 
     }

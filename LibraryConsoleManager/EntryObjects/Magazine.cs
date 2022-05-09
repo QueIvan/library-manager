@@ -18,5 +18,10 @@ namespace LibraryConsoleManager
             this.ReleaseDate = Date;
         }
 
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n\n     Dane dodatkowe Magazynu:\n          Reżyser: {Author.ToString()}\n          Rok wydania: {ReleaseDate}";
+        }
+
     }
 }

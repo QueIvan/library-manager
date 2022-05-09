@@ -17,7 +17,7 @@ namespace LibraryConsoleManager
                     Console.WriteLine($"\n[BŁĄD - {Name}] Proszę wpisywać wyłącznie liczby");
                     break;
                 case "ArgumentOutOfRangeException":
-                    Console.WriteLine($"\n[BŁĄD - {Name}] Wybierz wartość między 0 a 6");
+                    Console.WriteLine($"\n[BŁĄD - {Name}] Argument spoza zakresu");
                     break;
                 default:
                     Console.WriteLine($"\n[BŁĄD NIEZNANY] {Exc.Message}");
