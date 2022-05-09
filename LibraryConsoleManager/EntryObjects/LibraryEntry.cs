@@ -17,11 +17,6 @@ namespace LibraryConsoleManager
 
         /* Constructors */
 
-        public LibraryEntry()
-        {
-
-        }
-
         public LibraryEntry(string Title, uint CatalogId, EntryType Type)
         {
             this.Title = Title;
