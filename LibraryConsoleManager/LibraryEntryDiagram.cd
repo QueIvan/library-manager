@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LibraryConsoleManager.LibraryEntry" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACEAAQAgAAEAEAAAAAAAAAAAAAAAQAQAAAAAAAAg=</HashCode>
+      <FileName>EntryObjects\LibraryEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryConsoleManager.Magazine" Collapsed="true">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntryObjects\Magazine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryConsoleManager.CD" Collapsed="true">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAQAIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntryObjects\CD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryConsoleManager.Book" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAEgAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>EntryObjects\Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryConsoleManager.PopularBook" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>EntryObjects\PopularBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LibraryConsoleManager.EducationalBook" Collapsed="true">
+    <Position X="2.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>EntryObjects\EducationalBook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
