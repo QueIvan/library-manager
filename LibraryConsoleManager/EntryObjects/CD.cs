@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
 {
+    [DisplayName("Płyta")]
     internal class CD : LibraryEntry
     {
         private Author Director;

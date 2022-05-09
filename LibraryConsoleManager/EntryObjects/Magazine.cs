@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
 {
+    [DisplayName("Magazyn")]
     internal class Magazine : LibraryEntry
     {
         private Author Author;

@@ -7,12 +7,10 @@ using System.Reflection;
 
 namespace LibraryConsoleManager
 {
-    internal class Inputs
+    internal class ReadObjects
     { 
-
-        public static T ReadObject<T>()
+        private static Object ObjectReadLogic(Type Target)
         {
-            Type Target = typeof(T);
             ParameterInfo[] Parameters = null;
             List<Object> Arguments = new List<Object>();
 
@@ -33,21 +31,21 @@ namespace LibraryConsoleManager
             }
             if (Parameters == null) Parameters = Target.GetConstructors()[0].GetParameters();
 
-            Console.WriteLine("Podaj wymagane pola, żeby stworzyć");
+            Console.WriteLine("\nPodaj wymagane pola, aby stworzyć obiekt");
 
-            if(Parameters != null)
+            if (Parameters != null)
             {
                 foreach (ParameterInfo pi in Parameters)
                 {
                     Type ParamType = pi.ParameterType;
                     string ParamName = "";
-                    if(pi.GetCustomAttributes().Count() > 0)
+                    if (pi.GetCustomAttributes().Count() > 0)
                     {
-                        foreach(Object at in pi.GetCustomAttributes())
+                        foreach (Object at in pi.GetCustomAttributes())
                         {
-                            if(at as DisplayNameAttribute != null)
+                            if (at as DisplayNameAttribute != null)
                             {
-                                DisplayNameAttribute dn = (DisplayNameAttribute) at;
+                                DisplayNameAttribute dn = (DisplayNameAttribute)at;
                                 ParamName = dn.GetDisplayName();
                             }
                         }
@@ -60,8 +58,18 @@ namespace LibraryConsoleManager
                     Arguments.Add(Convert.ChangeType(Console.ReadLine(), ParamType));
                 }
             }
-            return (T) Activator.CreateInstance(Target, Arguments.ToArray());
+            return Activator.CreateInstance(Target, Arguments.ToArray());
+        }
+        public static T Read<T>()
+        {
+            Type Target = typeof(T);
+            return (T)ObjectReadLogic(Target);
+        }
+        public static Object Read(Type ObjectType)
+        {
+            return ObjectReadLogic(ObjectType);
         }
 
     }
+
 }
