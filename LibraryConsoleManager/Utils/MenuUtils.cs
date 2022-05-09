@@ -9,13 +9,20 @@ namespace LibraryConsoleManager
 {
     internal class MenuUtils
     {
-
+        /// <summary>
+        /// Sprawdzamy czy lista jest w naszym predefiniowanym zakresie
+        /// </summary>
+        /// <returns>Czy liczba jest w naszym zakresie</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private bool IsNumberInRange(int Choice)
         {
             if (Choice >= 0 && Choice <= 7) return true;
             else throw new ArgumentOutOfRangeException();
         }
 
+        /// <summary>
+        /// Wyświetlamy listę opcji naszego programu
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine("Witamy w bibliotece. wybierz co chcesz zrobić:\n");
@@ -30,6 +37,9 @@ namespace LibraryConsoleManager
             Console.Write("\nWybór: ");
         }
 
+        /// <summary>
+        /// Główna metoda programu odpowiadająca za rozsyłanie do odpowiednich metod po wyborze
+        /// </summary>
         public void RunMenu()
         {
             ActionHandler AH = new ActionHandler();
@@ -64,6 +74,9 @@ namespace LibraryConsoleManager
             }
         }
 
+        /// <summary>
+        /// Metoda służąca do wyczyszczenia ekranu po danym odstępie czasowym
+        /// </summary>
         public static void Clean(int Timeout, String message = "")
         {
             Console.WriteLine(" ");
@@ -77,6 +90,9 @@ namespace LibraryConsoleManager
             Console.Clear();
         }
 
+        /// <summary>
+        /// Metoda wstrzymująca program do wciśnięcia przycisku
+        /// </summary>
         public static void WaitToContinue()
         {
             Console.Write("\nWciśnij dowolny przycisk, aby kontynyować...");

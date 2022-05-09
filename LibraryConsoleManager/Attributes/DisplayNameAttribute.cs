@@ -2,6 +2,9 @@
 
 namespace LibraryConsoleManager
 {
+    /*
+     * Klasa wykożystywana przy użyciu auto-formularza Inputs.cs dla klas
+     */
     internal class DisplayNameAttribute : Attribute
     {
         private string Name;
