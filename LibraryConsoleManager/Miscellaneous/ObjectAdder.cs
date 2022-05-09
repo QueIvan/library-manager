@@ -8,6 +8,12 @@ namespace LibraryConsoleManager
 {
     internal class ObjectAdder
     {
+        ///<summary>
+        ///Zwróć listę wszystkich klas implementujących wybraną metodę oraz jej nazwę
+        ///</summary>
+        ///<returns>
+        ///Liste klas implementujących klase
+        ///</returns>
         public List<Tuple<Type, String>> GetImplementating(Type Implementation)
         {
             List<Tuple<Type, String>> OptionsList = new List<Tuple<Type, String>>();
@@ -16,13 +22,17 @@ namespace LibraryConsoleManager
             {
                 DisplayNameAttribute att = type.GetCustomAttributes(typeof(DisplayNameAttribute), true).FirstOrDefault() as DisplayNameAttribute;
                 if (att != null)
-                {
                     OptionsList.Add(new Tuple<Type, String>(type, att.GetDisplayName()));
-                }
             }
             return OptionsList;
         }
 
+        ///<summary>
+        ///Wyświetl wszystkie klasy implementujące typ, do wyboru przez użytkownika
+        ///</summary>
+        ///<returns>
+        ///Stworzony obiekt przez kreator
+        ///</returns>
         public T ShowOptionsToUser<T>()
         {
             int choice;

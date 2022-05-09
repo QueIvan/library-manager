@@ -9,7 +9,14 @@ namespace LibraryConsoleManager
 {
     internal class ActionHandler
     {
+        /* Lista wszystkich pozycji */
         private static List<LibraryEntry> Entries = new List<LibraryEntry>();
+
+        /*
+         * Aby zapełnić listę powyżej proszę odkomentować konstruktor poniżej
+         */
+
+        /*
         public ActionHandler()
         {
             Entries.Add(new PopularBook("Ja i ty", "Sci-Fi", "Jan", "Szewczyk", 123123, 3213, 1999));
@@ -18,12 +25,21 @@ namespace LibraryConsoleManager
             Entries.Add(new EducationalBook("Informatyka", "podstawa", "Ja", "Jan", "Szewczyk", 456205, 3213, 1999));
             Entries.Add(new Book("Ty i ja #232", "Jan", "Szewczyk", 665464, 3213, 1999));
         }
+         */
+
+        ///<summary>
+        ///Dodaj nową pozycję używając auto-formularza Inputs.cs
+        ///</summary>
         public void AddItem<T>()
         {
             T CreatedObject = (AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes()).Where(t => typeof(T).IsAssignableFrom(t) && t != typeof(T)).Count() > 0) ? new ObjectAdder().ShowOptionsToUser<T>():ReadObjects.Read<T>();
             LibraryEntry Entry = CreatedObject as LibraryEntry;
             Entries.Add(Entry);
         }
+
+        ///<summary>
+        ///Usuń pozycję z listy używając części tytułu lub numeru katalogowego
+        ///</summary>
         public void DeleteItem()
         {
             string InputValue;
@@ -33,7 +49,9 @@ namespace LibraryConsoleManager
             Console.Write("     Zapytanie: ");
             InputValue = Console.ReadLine();
 
+            // Sprawdzamy czy wartość jest liczbą
             if (int.TryParse(InputValue, out IntValue)) { 
+                //Sprawdzamy czy znaleziono chociaż jeden pasujący element
                 if (Entries.Where(ent => ent.GetCatalogId() == IntValue).Count() > 0)
                     Entries.Remove(Entries.Where(ent => ent.GetCatalogId() == IntValue).ToList()[0]);
                 else
@@ -41,13 +59,18 @@ namespace LibraryConsoleManager
             }
             else
             {
+                //Bierzemy wszystkie pozycje których tytuł pasuje do zapytania
                 List<LibraryEntry> Matching = Entries.Where(ent => StringUtils.StringContains(ent.GetTitle(), InputValue)).ToList();
                 LibraryEntry Target;
                 string decision;
-
-
+                
+                //Sprawdzamy czy znaleziono pasujące elementy
                 if (Matching.Count != 0)
                 {
+                    /*
+                     * Gdy mamy więcej niż jeden element, wyświetlamy wszystkie pasujące i dajemy możliwość wybrania
+                     * W innym przypadku usuwamy jedyny wynik
+                     */
                     if (Matching.Count > 1)
                     {
                         int choice;
@@ -59,6 +82,8 @@ namespace LibraryConsoleManager
                         Target = Entries[Entries.IndexOf(Matching[choice])];
                     }else
                         Target = Entries[Entries.IndexOf(Matching[0])];
+
+                    //Upewniamy się czy użytkownik chce usunąć dany obiekt
 
                     Console.WriteLine("\nCzy na pewno chcesz usunąć ten obiekt?");
                     Console.WriteLine($"\n     Tytuł: {Target.GetTitle()}, Numer Katalogowy: {Target.GetCatalogId()}\n");
@@ -81,6 +106,10 @@ namespace LibraryConsoleManager
 
             }
         }
+
+        ///<summary>
+        ///Wyświetl wszyskie elementy listy
+        ///</summary>
         public void ShowAll()
         {
             Console.WriteLine("\nLista wszystkich obiektów w bibliotece\n");
@@ -90,6 +119,9 @@ namespace LibraryConsoleManager
             MenuUtils.WaitToContinue();
         }
 
+        ///<summary>
+        ///Wyświetl status wybranego elementu
+        ///</summary>
         public void ShowStatus()
         {
             int choice;
@@ -105,16 +137,19 @@ namespace LibraryConsoleManager
 
             MenuUtils.WaitToContinue();
         }
+
+        ///<summary>
+        ///Wyświetl wszyskie elementy listy, które spełniają wybrane kryterium
+        ///</summary>
         public void ShowMatching()
         {
             int choice;
+            //Pobieramy wszystkie klasy które implementują LibraryEntry.cs
             List<Tuple<Type, String>> Options = new ObjectAdder().GetImplementating(typeof(LibraryEntry));
             
             Console.WriteLine("\nWybierz typ do wyszukania:\n");
             foreach (Tuple<Type, String> entry in Options)
-            {
                 Console.WriteLine($"     {Options.IndexOf(entry) + 1}. {entry.Item2}");
-            }
             Console.Write("\nWybór: ");
 
             choice = Int32.Parse(Console.ReadLine());

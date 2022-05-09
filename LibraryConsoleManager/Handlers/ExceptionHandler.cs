@@ -8,7 +8,10 @@ namespace LibraryConsoleManager
 {
     internal class ExceptionHandler
     {
-        public static void ShowResponse(Exception Exc, bool corr = true)
+        ///<summary>
+        ///Wyświetl predefiniowaną odpowiedz do wyrzuconych wątków
+        ///</summary>
+        public static void ShowResponse(Exception Exc)
         {
             string Name = Exc.GetType().Name;
             switch (Name)

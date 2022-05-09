@@ -9,6 +9,12 @@ namespace LibraryConsoleManager
 {
     internal class ReadObjects
     { 
+        /// <summary>
+        /// Ogólna logika która po przyjęciu Typu na którego podstawie stworzy auto-formularz, zwraca stworzony obiekt wybranego typu
+        /// </summary>
+        /// <returns>
+        /// Obiekt typu podanego w parametrze Target
+        /// </returns>
         private static Object ObjectReadLogic(Type Target)
         {
             ParameterInfo[] Parameters = null;
@@ -60,11 +66,25 @@ namespace LibraryConsoleManager
             }
             return Activator.CreateInstance(Target, Arguments.ToArray());
         }
+
+        /// <summary>
+        /// Metoda do stworzenia auto-formularza używając parametru ogólnego
+        /// </summary>
+        /// <returns>
+        /// Obiekt typu podanego w T
+        /// </returns>
         public static T Read<T>()
         {
             Type Target = typeof(T);
             return (T)ObjectReadLogic(Target);
         }
+
+        /// <summary>
+        /// Metoda do stworzenia auto-formularza używając parametru ObjectType
+        /// </summary>
+        /// <returns>
+        /// Obiekt typu podanego w ObjectType
+        /// </returns>
         public static Object Read(Type ObjectType)
         {
             return ObjectReadLogic(ObjectType);
