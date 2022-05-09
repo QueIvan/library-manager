@@ -20,5 +20,10 @@ namespace LibraryConsoleManager
             this.ISBN = ISBN;
         }
 
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n\n     Dane dodatkowe Płyty:\n          Reżyser: {Director.ToString()}\n          Rok wydania: {ReleaseDate}\n          Numer ISBN: {ISBN}";
+        }
+
     }
 }

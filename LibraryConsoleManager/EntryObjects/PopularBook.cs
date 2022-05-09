@@ -16,5 +16,10 @@ namespace LibraryConsoleManager
             this.TargetGenre = TargetGenre;
         }
 
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n          Gatunek: {TargetGenre}";
+        }
+
     }
 }

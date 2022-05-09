@@ -17,6 +17,10 @@ namespace LibraryConsoleManager
             this.Field = Field;
             this.Difficulty = Difficulty;
         }
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n          Dziedzina: {Field}\n          Poziom zaawansowania: {Difficulty}";
+        }
 
     }
 }

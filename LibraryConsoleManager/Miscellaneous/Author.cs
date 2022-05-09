@@ -29,5 +29,14 @@ namespace LibraryConsoleManager
         {
             this.CompanyName = CompanyName;
         }
+
+        public override string ToString()
+        {
+            if(CompanyName == null)
+                return $"{FirstName} {LastName}";
+            else 
+                return CompanyName;
+        }
+
     }
 }
