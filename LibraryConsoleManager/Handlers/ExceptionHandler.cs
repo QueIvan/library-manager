@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace LibraryConsoleManager
 {
     internal class ExceptionHandler
     {
-        public static void ShowResponse(string Name)
+        public static void ShowResponse(Exception Exc, bool corr = true)
         {
+            string Name = Exc.GetType().Name;
             switch (Name)
             {
                 case "FormatException":
@@ -18,10 +20,10 @@ namespace LibraryConsoleManager
                     Console.WriteLine($"\n[BŁĄD - {Name}] Wybierz wartość między 0 a 6");
                     break;
                 default:
-                    Console.WriteLine("\n[BŁĄD NIEZNANY] Wystąpił błąd który nie jest znany przez nasz zespół");
+                    Console.WriteLine($"\n[BŁĄD NIEZNANY] {Exc.Message}");
+                    Thread.Sleep(15000);
                     break;
             }
-            MenuUtils.Clean(2);
         }
     }
 }

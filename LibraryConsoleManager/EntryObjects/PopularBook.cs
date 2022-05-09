@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
 {
+    [DisplayName("Książka popularnonaukowa")]
     internal class PopularBook : Book
     {
-        private string Type;
-        private string TargetGeneration;
+        private string TargetGenre;
 
-        public PopularBook(string Type, string TargetGeneration, string Title, string FirstName, string LastName, uint CatalogId, int ISBN, int Year) : base(Title, FirstName, LastName, CatalogId, ISBN, Year)
+        public PopularBook([DisplayName("tytuł")] string Title, [DisplayName("kategorie")] string TargetGenre, [DisplayName("imie")] string FirstName, [DisplayName("nazwisko")] string LastName, [DisplayName("numer katalogowy")] uint CatalogId, [DisplayName("numer ISBN")] int ISBN, [DisplayName("rok wydania")] int Year) : base(Title, FirstName, LastName, CatalogId, ISBN, Year)
         {
-            this.Type = Type;
-            this.TargetGeneration = TargetGeneration;
+            this.TargetGenre = TargetGenre;
         }
 
     }
