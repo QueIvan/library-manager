@@ -10,10 +10,10 @@ namespace LibraryConsoleManager
     internal class StringUtils
     {
         /// <summary>
-        /// Konwertujemy zmienna logiczną na jej odpowiednik jako zmienna tekstowa
+        /// Convert boolean to it's string representation
         /// </summary>
         /// <returns>
-        /// Wartość tekstową zmiennej logicznej
+        /// String value of status
         /// </returns>
         public static string BooleanConvert(bool status)
         {
@@ -21,10 +21,10 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Jeżeli liczba jest w zakresie 0-10, dodajemy poprzedzające zero
+        /// If number is between 0 and 10, we add leading zero to it
         /// </summary>
         /// <returns>
-        /// Liczbe po zmianie
+        /// Correct display number
         /// </returns>
         public static string LeadingZeroAddition(int number)
         {
@@ -32,10 +32,10 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Metoda sprawdzająca czy dany ciąg znaków występuje w sprawdzanym tekscie
+        /// Method used to check if string contains query
         /// </summary>
         /// <returns>
-        /// Czy ciąg znaków jest w sprawdzanym tekście
+        /// If string contains query
         /// </returns>
         public static bool StringContains(string target, string match)
         {

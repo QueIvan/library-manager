@@ -9,7 +9,7 @@ namespace LibraryConsoleManager
     internal class ExceptionHandler
     {
         ///<summary>
-        ///Wyświetl predefiniowaną odpowiedz do wyrzuconych wątków
+        ///Show response for given Exception
         ///</summary>
         public static void ShowResponse(Exception Exc)
         {

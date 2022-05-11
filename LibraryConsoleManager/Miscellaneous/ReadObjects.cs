@@ -10,10 +10,10 @@ namespace LibraryConsoleManager
     internal class ReadObjects
     { 
         /// <summary>
-        /// Ogólna logika która po przyjęciu Typu na którego podstawie stworzy auto-formularz, zwraca stworzony obiekt wybranego typu
+        /// General logic behind custom object creator for given class
         /// </summary>
         /// <returns>
-        /// Obiekt typu podanego w parametrze Target
+        /// New Object of Target type
         /// </returns>
         private static Object ObjectReadLogic(Type Target)
         {
@@ -68,10 +68,10 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Metoda do stworzenia auto-formularza używając parametru ogólnego
+        /// Method to run creator using generic parameter
         /// </summary>
         /// <returns>
-        /// Obiekt typu podanego w T
+        /// New Object of T type
         /// </returns>
         public static T Read<T>()
         {
@@ -80,10 +80,10 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Metoda do stworzenia auto-formularza używając parametru ObjectType
+        /// Method to run creator using ObjectType parameter
         /// </summary>
         /// <returns>
-        /// Obiekt typu podanego w ObjectType
+        /// New Object of ObjectType type
         /// </returns>
         public static Object Read(Type ObjectType)
         {
