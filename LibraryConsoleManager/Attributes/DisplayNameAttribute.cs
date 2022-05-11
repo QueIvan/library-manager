@@ -3,7 +3,7 @@
 namespace LibraryConsoleManager
 {
     /*
-     * Klasa wykożystywana przy użyciu auto-formularza Inputs.cs dla klas
+     * Attribute used to set display name of classes for creator
      */
     internal class DisplayNameAttribute : Attribute
     {

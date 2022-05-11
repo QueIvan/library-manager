@@ -10,9 +10,9 @@ namespace LibraryConsoleManager
     internal class MenuUtils
     {
         /// <summary>
-        /// Sprawdzamy czy lista jest w naszym predefiniowanym zakresie
+        /// Check if number is in a given Range
         /// </summary>
-        /// <returns>Czy liczba jest w naszym zakresie</returns>
+        /// <returns>If number is in range</returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         private bool IsNumberInRange(int Choice)
         {
@@ -21,7 +21,7 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Wyświetlamy listę opcji naszego programu
+        /// Show main menu of our program
         /// </summary>
         private void ShowMenu()
         {
@@ -38,7 +38,7 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Główna metoda programu odpowiadająca za rozsyłanie do odpowiednich metod po wyborze
+        /// Main app method
         /// </summary>
         public void RunMenu()
         {
@@ -75,7 +75,7 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Metoda służąca do wyczyszczenia ekranu po danym odstępie czasowym
+        /// Method used to clear console after given timeout
         /// </summary>
         public static void Clean(int Timeout, String message = "")
         {
@@ -91,7 +91,7 @@ namespace LibraryConsoleManager
         }
 
         /// <summary>
-        /// Metoda wstrzymująca program do wciśnięcia przycisku
+        /// Method that halts console awaiting any click
         /// </summary>
         public static void WaitToContinue()
         {

@@ -20,6 +20,11 @@ namespace LibraryConsoleManager
             this.ISBN = ISBN;
         }
 
+        public void GetString()
+        {
+            Console.WriteLine(base.ToString());
+        }
+
         public override string ToString()
         {
             return $"{base.ToString()}\n\n     Dane dodatkowe Książki:\n          Autor: {Author.ToString()}\n          Rok wydania: {PublicationYear}\n          Numer ISBN: {ISBN}";
