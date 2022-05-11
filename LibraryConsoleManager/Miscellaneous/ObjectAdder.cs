@@ -9,10 +9,10 @@ namespace LibraryConsoleManager
     internal class ObjectAdder
     {
         ///<summary>
-        ///Zwróć listę wszystkich klas implementujących wybraną metodę oraz jej nazwę
+        ///Return list of all classes implementing given type along their name
         ///</summary>
         ///<returns>
-        ///Liste klas implementujących klase
+        ///List of Type's and string's
         ///</returns>
         public List<Tuple<Type, String>> GetImplementating(Type Implementation)
         {
@@ -28,10 +28,10 @@ namespace LibraryConsoleManager
         }
 
         ///<summary>
-        ///Wyświetl wszystkie klasy implementujące typ, do wyboru przez użytkownika
+        ///Return list of all classes implementing given type along their name for user to pick for creater
         ///</summary>
         ///<returns>
-        ///Stworzony obiekt przez kreator
+        ///Created object of T type
         ///</returns>
         public T ShowOptionsToUser<T>()
         {
