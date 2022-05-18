@@ -14,6 +14,7 @@ namespace LibraryConsoleManager
         public static void ShowResponse(Exception Exc)
         {
             string Name = Exc.GetType().Name;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             switch (Name)
             {
                 case "FormatException":
@@ -27,6 +28,7 @@ namespace LibraryConsoleManager
                     Thread.Sleep(15000);
                     break;
             }
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DefaultConstructorAttribute.cs" />
+    <Compile Include="EntryObjects\Entry.cs" />
     <Compile Include="EntryObjects\PopularBook.cs" />
     <Compile Include="EntryObjects\EducationalBook.cs" />
     <Compile Include="Miscellaneous\Author.cs" />

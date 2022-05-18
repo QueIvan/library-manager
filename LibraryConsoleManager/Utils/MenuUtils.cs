@@ -14,7 +14,7 @@ namespace LibraryConsoleManager
         /// </summary>
         /// <returns>If number is in range</returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private bool IsNumberInRange(int Choice)
+        private static bool IsNumberInRange(int Choice)
         {
             if (Choice >= 0 && Choice <= 7) return true;
             else throw new ArgumentOutOfRangeException();
@@ -23,9 +23,11 @@ namespace LibraryConsoleManager
         /// <summary>
         /// Show main menu of our program
         /// </summary>
-        private void ShowMenu()
+        private static void ShowMenu()
         {
-            Console.WriteLine("Witamy w bibliotece. wybierz co chcesz zrobić:\n");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Witamy w bibliotece. Wybierz co chcesz zrobić:\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("   1. Dodaj książkę");
             Console.WriteLine("   2. Dodaj płytę");
             Console.WriteLine("   3. Dodaj czasopismo");
@@ -34,13 +36,15 @@ namespace LibraryConsoleManager
             Console.WriteLine("   6. Wyświetl wszystkie pozycje danego typu");
             Console.WriteLine("   7. Wyświetl status pozycji");
             Console.WriteLine("   0. Wyjście");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("\nWybór: ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
 
         /// <summary>
         /// Main app method
         /// </summary>
-        public void RunMenu()
+        public static void RunMenu()
         {
             ActionHandler AH = new ActionHandler();
             int Choice = -1;
@@ -80,6 +84,7 @@ namespace LibraryConsoleManager
         public static void Clean(int Timeout, String message = "")
         {
             Console.WriteLine(" ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             if (!message.Equals("")) Console.WriteLine($"{message},");
             for (int i = Timeout; i > 0; i--)
             {
@@ -95,6 +100,7 @@ namespace LibraryConsoleManager
         /// </summary>
         public static void WaitToContinue()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("\nWciśnij dowolny przycisk, aby kontynyować...");
             Console.ReadLine();
         }

@@ -38,12 +38,17 @@ namespace LibraryConsoleManager
             int choice;
             List<Tuple<Type, String>> Options = GetImplementating(typeof(T));
 
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\nProszę wybrać rodzaj dodawanego elementu:\n");
 
-            foreach(Tuple<Type, String> Opt in Options)
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            foreach (Tuple<Type, String> Opt in Options)
                 Console.WriteLine($"   {Options.IndexOf(Opt)+1}. {Opt.Item2}");
             Console.WriteLine($"   0. Inny niezdefiniowany element");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.Write("\nWybór: ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
 
             choice = Int32.Parse(Console.ReadLine());
             Type Target = (choice != 0) ? Options[choice-1].Item1 : typeof(T);
