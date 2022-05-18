@@ -6,7 +6,7 @@ namespace LibraryConsoleManager
     {
         CD, Book, Magazine
     }
-    internal class LibraryEntry
+    internal abstract class LibraryEntry : Entry
     {
         private readonly uint CatalogId;
         private bool Rented;
@@ -43,7 +43,7 @@ namespace LibraryConsoleManager
             return $"\nDane {TypeString}:\n\n     Tytuł: {Title}\n     Numer katalogowy: {CatalogId}\n     Data Dodania: {AdditionDate}\n     Zarezerwowana: {StringUtils.BooleanConvert(Reserved)}\n     Wynajęta: {StringUtils.BooleanConvert(Rented)}";
         }
 
-        public string GetState()
+        public virtual string GetState()
         {
             string TypeString = (Type == EntryType.CD) ? "Płyty" : (Type == EntryType.Magazine) ? "Magazynu" : "Książki";
             return $"\nStatus {TypeString}:\n\n     Zarezerwowana: {StringUtils.BooleanConvert(Reserved)}\n     Wynajęta: {StringUtils.BooleanConvert(Rented)}";

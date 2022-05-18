@@ -37,6 +37,7 @@ namespace LibraryConsoleManager
             }
             if (Parameters == null) Parameters = Target.GetConstructors()[0].GetParameters();
 
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("\nPodaj wymagane pola, aby stworzyć obiekt");
 
             if (Parameters != null)
@@ -60,7 +61,9 @@ namespace LibraryConsoleManager
                     {
                         ParamName = pi.Name;
                     }
+                    Console.ForegroundColor = ConsoleColor.DarkCyan;
                     Console.Write($"   Podaj {ParamName}:  ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Arguments.Add(Convert.ChangeType(Console.ReadLine(), ParamType));
                 }
             }

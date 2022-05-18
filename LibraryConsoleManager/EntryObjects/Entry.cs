@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibraryConsoleManager
 {
-    internal class Program
+    internal interface Entry
     {
-        static void Main(string[] args)
-        {
-            MenuUtils.RunMenu();
-            MenuUtils.WaitToContinue();
-        }
+        string GetState();
     }
 }
